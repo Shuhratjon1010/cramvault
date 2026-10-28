@@ -25,8 +25,8 @@ U=[
 ("usc","USC","Los Angeles, CA",[("CHEM 105a",CH),("BISC 120",BI),("MATH 125",CA)]),
 ("cornell","Cornell University","Ithaca, NY",[("CHEM 2070",CH),("CS 1110","cs"),("MATH 1910",CA)]),
 ("columbia","Columbia University","New York, NY",[("CHEM UN1403",CH),("COMS W1004","cs"),("MATH UN1101",CA)]),
-("upenn","University of Pennsylvania","Philadelphia, PA",[("CHEM 1011",CH),("BIOL 1101",BI),("MATH 1400",CA)]),
-("harvard","Harvard University","Cambridge, MA",[("CS 50","cs"),("STAT 110",ST),("MATH 21a",LA)]),
+("upenn","University of Pennsylvania","Philadelphia, PA",[("CHEM 1012",CH),("CIS 1200","cs"),("MATH 1400",CA)]),
+("harvard","Harvard University","Cambridge, MA",[("CS 50","cs"),("STAT 110",ST),("MATH 21b",LA)]),
 ("stanford","Stanford University","Stanford, CA",[("CS 106A","cs"),("CHEM 31A",CH),("MATH 51",LA)]),
 ]
 def enc(p): return base64.urlsafe_b64encode(json.dumps(p,ensure_ascii=False,separators=(",",":")).encode()).decode().rstrip("=")

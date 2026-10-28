@@ -1,0 +1,6 @@
+<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shared Cram Vault Deck</title><meta name="robots" content="noindex">
+<style>body{font-family:-apple-system,system-ui;background:#0f0d2e;color:#eef;max-width:640px;margin:auto;padding:24px}li{margin:8px 0}a,button{color:#000;background:#33e699;border:0;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-block}</style></head>
+<body><h1 id="t">Shared deck</h1><p>Copy this link, open Cram Vault › Import, and paste to add the deck with FSRS scheduling.</p>
+<p><button onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!'">Copy deck link</button> <a href="https://apps.apple.com/us/search?term=cram%20vault">Get Cram Vault</a></p><ol id="c"></ol>
+<script>try{let b=location.hash.slice(1).replace(/-/g,'+').replace(/_/g,'/');while(b.length%4)b+='=';const p=JSON.parse(decodeURIComponent(escape(atob(b))));document.getElementById('t').textContent=p.t;
+p.cards.slice(0,10).forEach(([f,k])=>{const li=document.createElement('li');li.textContent=f+' — '+k;document.getElementById('c').appendChild(li)})}catch(e){}</script></body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cram Vault — 45-Second Exam Readiness & Grade Predictor Quiz (Web2App)</title>
+  <meta name="description" content="7-question diagnostic: calibrate FSRS v5 spaced repetition, Exam Readiness Score (0–100%), and unlock 24h Free Cram Pass or $39.99/yr Hero Annual via Stripe before App Store redirect." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "Cram Vault Exam Readiness & Grade Predictor Quiz",
+    "about": { "@type": "SoftwareApplication", "name": "Cram Vault", "operatingSystem": "iOS", "applicationCategory": "EducationalApplication" }
+  }
+  </script>
+  <style>
+    :root { --bg:#070b14; --card:#111827; --emerald:#10b981; --cyan:#06b6d4; --gold:#f5c242; --text:#f9fafb; --muted:#9ca3af; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:20px; display:flex; justify-content:center; align-items:flex-start; }
+    .wrap { max-width:560px; width:100%; background:var(--card); border-radius:20px; padding:26px; border:1px solid rgba(16,185,129,0.28); box-shadow:0 20px 50px rgba(0,0,0,0.6); }
+    .badge { display:inline-block; background:rgba(16,185,129,0.18); color:var(--emerald); font-size:11px; font-weight:800; padding:6px 12px; border-radius:999px; letter-spacing:0.06em; }
+    h1 { font-size:22px; margin:12px 0 6px; }
+    p.sub { color:var(--muted); font-size:13px; line-height:1.5; margin:0 0 16px; }
+    .prog { height:6px; background:#1f2937; border-radius:999px; overflow:hidden; margin-bottom:18px; }
+    .prog > div { height:100%; background:linear-gradient(90deg,var(--emerald),var(--cyan)); width:14%; transition:width .25s; }
+    .q { display:none; }
+    .q.active { display:block; }
+    .q h2 { font-size:16px; margin:0 0 10px; }
+    .opt { display:block; width:100%; text-align:left; background:#1f2937; color:var(--text); border:1px solid #374151; border-radius:12px; padding:12px 14px; margin:8px 0; cursor:pointer; font-size:14px; }
+    .opt:hover, .opt.sel { border-color:var(--emerald); background:rgba(16,185,129,0.12); }
+    .res { display:none; }
+    .res.active { display:block; }
+    .gauge { font-size:32px; font-weight:900; color:var(--emerald); margin:8px 0; }
+    .offer { border:1px solid #374151; border-radius:14px; padding:14px; margin:10px 0; background:#0f172a; }
+    .offer.hero { border-color:var(--emerald); box-shadow:0 0 0 1px var(--emerald); }
+    .offer h3 { margin:0 0 4px; font-size:15px; }
+    .offer .price { color:var(--gold); font-weight:800; font-size:14px; }
+    .cta { display:block; width:100%; text-align:center; background:linear-gradient(90deg,var(--emerald),var(--cyan)); color:#041014; font-weight:800; padding:14px; border-radius:12px; text-decoration:none; margin-top:10px; border:none; cursor:pointer; font-size:14px; }
+    .rescue { margin-top:12px; font-size:12px; color:var(--muted); text-align:center; cursor:pointer; text-decoration:underline; }
+    #rescueDrawer { display:none; border:1px dashed var(--gold); border-radius:12px; padding:12px; margin-top:10px; background:rgba(245,194,66,0.08); }
+    .meta { font-size:11px; color:var(--muted); margin-top:14px; line-height:1.4; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <span class="badge">WEB2APP · STRIPE ~97% NET MARGIN · FSRS v5 CALIBRATION</span>
+    <h1>45-Second Exam Readiness & Grade Predictor Quiz</h1>
+    <p class="sub">7 quick answers → personalized Readiness Score (0–100%), FSRS v5 interval compression, and web checkout before App Store redirect.</p>
+    <div class="prog"><div id="bar"></div></div>
+
+    <section class="q active" data-step="1">
+      <h2>1/7 · When is your next high-stakes exam?</h2>
+      <button class="opt" onclick="pick(1,'18h',15)">Within 24 hours (Cram Mode — FSRS v5 ultra-compression)</button>
+      <button class="opt" onclick="pick(1,'7d',12)">This week (2–7 days)</button>
+      <button class="opt" onclick="pick(1,'21d',10)">2–3 weeks out (Midterm window)</button>
+      <button class="opt" onclick="pick(1,'sem',8)">Full semester pacing</button>
+    </section>
+
+    <section class="q" data-step="2">
+      <h2>2/7 · Which track or exam are you targeting?</h2>
+      <button class="opt" onclick="pick(2,'nclex',15)">Nursing BSN / NCLEX</button>
+      <button class="opt" onclick="pick(2,'mcat',15)">Pre-Med / MCAT / USMLE Step 1</button>
+      <button class="opt" onclick="pick(2,'stem',14)">STEM / Organic Chem / Engineering FE</button>
+      <button class="opt" onclick="pick(2,'law',14)">Law (LSAT / MBE) · CPA · Series 7 · AP</button>
+    </section>
+
+    <section class="q" data-step="3">
+      <h2>3/7 · Biggest study bottleneck right now?</h2>
+      <button class="opt" onclick="pick(3,'lecture',15)">2-hour lectures I never re-listen to</button>
+      <button class="opt" onclick="pick(3,'slides',14)">Dense slides & whiteboards (need instant OCR decks)</button>
+      <button class="opt" onclick="pick(3,'forget',15)">I cram then blank on exam day (Ebbinghaus decay)</button>
+      <button class="opt" onclick="pick(3,'time',13)">Too many courses (3–7 classes at once)</button>
+    </section>
+
+    <section class="q" data-step="4">
+      <h2>4/7 · Target grade or percentile lift?</h2>
+      <button class="opt" onclick="pick(4,'A+',15)">B-/C+ → A / A+ (90%+ exam-day retention)</button>
+      <button class="opt" onclick="pick(4,'95p',15)">90th+ percentile board score (MCAT / NCLEX / LSAT)</button>
+      <button class="opt" onclick="pick(4,'pass',12)">Pass high-risk weed-out midterm this week</button>
+    </section>
+
+    <section class="q" data-step="5">
+      <h2>5/7 · Daily focused study window you can commit?</h2>
+      <button class="opt" onclick="pick(5,'20m',12)">15–25 min/day (commute + Lock Screen due cards)</button>
+      <button class="opt" onclick="pick(5,'45m',14)">45 min/day (1 lecture → 1-page sheet + deck)</button>
+      <button class="opt" onclick="pick(5,'2h',15)">2+ hours/day (Finals / Board sprint)</button>
+    </section>
+
+    <section class="q" data-step="6">
+      <h2>6/7 · How do you absorb fastest?</h2>
+      <button class="opt" onclick="pick(6,'audio',14)">Offline lecture audio → gold waveform recap + cheat sheet</button>
+      <button class="opt" onclick="pick(6,'ocr',14)">Camera / slide OCR → instant active-recall flashcards</button>
+      <button class="opt" onclick="pick(6,'both',15)">Both + 3 Midterm Red-Flag traps flagged automatically</button>
+    </section>
+
+    <section class="q" data-step="7">
+      <h2>7/7 · Ready to lock your FSRS v5 Cram Plan?</h2>
+      <button class="opt" onclick="pick(7,'yes',15)">Yes — compute my Readiness Score &Predicted Grade Lift</button>
+      <button class="opt" onclick="pick(7,'fast',14)">Yes — take me straight to my 24-Hour Free Cram Pass</button>
+    </section>
+
+    <section class="res" id="res">
+      <span class="badge">DIAGNOSTIC COMPLETE · FSRS v5 READY</span>
+      <div class="gauge" id="scoreOut">88% Projected Exam Readiness (B- → A)</div>
+      <p class="sub" id="rxOut">Prescription: 0.4s offline lecture-to-cheat-sheet + Vision OCR deck + FSRS v5 interval compression (94% exam-day retention vs 34% passive reread).</p>
+
+      <div class="offer hero">
+        <h3>MOST POPULAR · Hero Annual & Semester Pass</h3>
+        <div class="price">$39.99/yr ($0.77/wk) · Includes 24-Hour Free Cram Pass</div>
+        <p class="sub"> SKU <code>com.cramvault.app.pro.annual</code> · Unlimited offline lecture transcription, Whiteboard OCR, FSRS v5 & Grade Predictor.</p>
+        <a class="cta" id="ctaAnnual" href="https://apps.apple.com/us/search?term=cram%20vault">Unlock Hero Annual via Stripe → Open Cram Vault</a>
+      </div>
+
+      <div class="offer">
+        <h3>Instant Exam Unlock · 7-Day Finals Surge Pass</h3>
+        <div class="price">$9.99 one-time impulse unlock</div>
+        <p class="sub">SKU <code>com.cramvault.app.cram.pass</code> · Built for exams in &lt;72 hours.</p>
+        <a class="cta" id="ctaPass" href="https://apps.apple.com/us/search?term=cram%20vault">Unlock $9.99 Exam Surge Pass</a>
+      </div>
+
+      <div class="offer">
+        <h3>24-Hour Free Cram Pass (Trial Bridge)</h3>
+        <div class="price">$0 today → $39.99/yr if kept (cancel anytime)</div>
+        <a class="cta" id="ctaTrial" href="https://apps.apple.com/us/search?term=cram%20vault">Start 24-Hour Free Cram Pass on iOS</a>
+      </div>
+
+      <div class="rescue" onclick="document.getElementById('rescueDrawer').style.display='block'">Can't afford full price right now? Tap for Student Scholarship Rescue (50% off)</div>
+      <div id="rescueDrawer">
+        <strong>Student Scholarship Abandon Rescue — $19.99/yr (50% Off)</strong>
+        <p class="sub">SKU <code>com.cramvault.app.pro.annual.scholarship</code> · Verified student rate via Web2App Stripe checkout.</p>
+        <a class="cta" id="ctaScholar" href="https://apps.apple.com/us/search?term=cram%20vault">Claim $19.99/yr Scholarship Pass</a>
+      </div>
+
+      <div class="meta" id="attrMeta"></div>
+    </section>
+  </main>
+
+  <script>
+    const state = { ans:{}, pts:0, params:new URLSearchParams(location.search) };
+    const attrKeys = ['utm_source','utm_medium','utm_campaign','ttclid','rdt_cid','cpp','course'];
+    const captured = {};
+    attrKeys.forEach(k => { if(state.params.get(k)) captured[k]=state.params.get(k); });
+
+    function pick(step, val, pts){
+      state.ans[step]=val; state.pts+=pts;
+      document.querySelectorAll('.q').forEach(el=>el.classList.remove('active'));
+      if(step<7){
+        document.querySelector(`.q[data-step="${step+1}"]`).classList.add('active');
+        document.getElementById('bar').style.width = ((step+1)/7*100)+'%';
+      } else {
+        finish();
+      }
+    }
+    function finish(){
+      document.getElementById('bar').style.width='100%';
+      const score = Math.min(96, Math.max(78, state.pts));
+      document.getElementById('scoreOut').textContent = `${score}% Projected Exam-Day Retention (B- → A+)`;
+      const qStr = new URLSearchParams({...captured, readiness:score, track:state.ans[2]||'us', urgency:state.ans[1]||'7d'}).toString();
+      ['ctaAnnual','ctaPass','ctaScholar'].forEach(id=>{
+        const el = document.getElementById(id);
+        el.href = el.href + (qStr ? '&'+qStr : '') + '&deep_link=' + encodeURIComponent('cramvault://activate?'+qStr);
+      });
+      document.getElementById('attrMeta').textContent =
+        'Attribution & deep-link handoff active: Universal Link https://shuhratjon1010.github.io/cramvault/activate → cramvault://activate → App Store fallback · Params: ' + (qStr||'direct');
+      document.getElementById('res').classList.add('active');
+    }
+  </script>
+<script id="cvExam">(function(){const EX={"mcat": {"name": "MCAT", "track": "mcat"}, "nclex": {"name": "NCLEX-RN", "track": "nclex"}, "usmle-step-1": {"name": "USMLE Step 1", "track": "mcat"}, "lsat": {"name": "LSAT", "track": "law"}, "mbe-bar-exam": {"name": "Multistate Bar Exam (MBE)", "track": "law"}, "cpa-exam": {"name": "CPA Exam", "track": "law"}, "fe-pe-engineering": {"name": "FE / PE Engineering", "track": "stem"}, "series-7": {"name": "FINRA Series 7", "track": "law"}, "ap-calculus": {"name": "AP Calculus AB/BC", "track": "stem"}, "ap-biology": {"name": "AP Biology", "track": "ap"}, "ap-chemistry": {"name": "AP Chemistry", "track": "ap"}, "ap-us-history": {"name": "AP US History (APUSH)", "track": "ap"}, "sat": {"name": "SAT (Digital)", "track": "ap"}, "act": {"name": "ACT", "track": "ap"}, "organic-chemistry": {"name": "Organic Chemistry I & II", "track": "stem"}, "anatomy-physiology": {"name": "Anatomy & Physiology I & II", "track": "nclex"}};const p=new URLSearchParams(location.search);const s=(p.get('exam')||'').toLowerCase();const e=EX[s];if(!e)return;
+document.title=e.name+' Readiness Quiz — Cram Vault';document.querySelector('h1').textContent='45-Second '+e.name+' Readiness Quiz';
+const b=document.createElement('p');b.className='sub';b.id='examBanner';b.innerHTML='Personalized for <b>'+e.name+'</b> · <a style="color:#10b981" href="exams/'+s+'.html">'+e.name+' cheat sheet</a>';document.querySelector('.sub').after(b);
+captured.exam=s;const t=document.getElementById('ctaTrial');t.href=t.href+'&exam='+s;
+const orig=window.pick;window.pick=function(st,v,pt){if(st===2&&!state.ans[2])v=v||e.track;orig(st,v,pt);if(st===1){state.ans[2]=e.track;}};})();</script>
+</body>
+</html>

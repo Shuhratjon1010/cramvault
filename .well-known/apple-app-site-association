@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "TEAMID.com.cramvault.app"
+        ],
+        "components": [
+          {
+            "/": "/deck/*",
+            "comment": "Shared Course Midterm Vault Deep Link"
+          },
+          {
+            "/": "/activate*",
+            "comment": "Web2App Stripe Pass Activation"
+          }
+        ]
+      }
+    ]
+  }
+}

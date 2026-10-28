@@ -12,6 +12,8 @@ G=[
 ("anatomy-physiology-bio-201","Anatomy & Physiology (BIO 201)","BIO 201",[("Largest organ","Skin (integumentary system)"),("SA node function","Natural pacemaker of the heart"),("Functional unit of kidney","Nephron"),("Neurotransmitter at neuromuscular junction","Acetylcholine"),("Number of bones in adult body","206"),("Where gas exchange occurs","Alveoli")]),
 ("microeconomics-econ-101","Microeconomics (ECON 101)","ECON 101",[("Price elasticity of demand","%ΔQd / %ΔP"),("Profit-maximizing rule","Produce where MR = MC"),("Opportunity cost","Value of the next best alternative forgone"),("Consumer surplus","Willingness to pay − price paid"),("Perfect competition long run","P = MC = min ATC, zero economic profit"),("Price ceiling effect","Shortage when set below equilibrium")]),
 ]
+from study_more import G2
+G+=G2
 def enc(p):
     return base64.urlsafe_b64encode(json.dumps(p,ensure_ascii=False,separators=(",",":")).encode()).decode().rstrip("=")
 for slug,name,exam,cards in G:
@@ -38,7 +40,7 @@ for slug,name,exam,cards in G:
 <p>High-yield {html.escape(name)} facts for US students. Tap a card to flip it, then import the whole deck into Cram Vault so FSRS spaced repetition schedules each card right before you'd forget it.</p>
 <div class="grid">{cardsh}</div>
 <p><a class="cta" href="{deck}">Import this deck</a><a class="cta" href="https://apps.apple.com/us/search?term=cram%20vault">Get Cram Vault on the App Store</a></p>
-<h2>FAQ</h2>{faqh}<p><a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../support.html">Support</a></p></body></html>""")
+<h2>FAQ</h2>{faqh}<h2>More study guides</h2><ul>{"".join(f'<li><a href="{s2}.html">{html.escape(n2)}</a></li>' for s2,n2,_,_ in [G[(G.index((slug,name,exam,cards))+k)%len(G)] for k in range(1,7)])}</ul><p><a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../support.html">Support</a></p></body></html>""")
 idx="".join(f'<li><a href="{s}.html">{html.escape(n)}</a> — {html.escape(e)}</li>' for s,n,e,_ in G)
 open("study/index.html","w").write(f"""<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>US Exam &amp; Course Study Guides | Cram Vault</title><link rel="canonical" href="{B}study/">
 <meta name="description" content="Free flashcard study guides for USMLE, SAT, CPA, Bar Exam, AP and intro college courses."><style>body{{font-family:-apple-system,system-ui;background:#0f0d2e;color:#eef;max-width:760px;margin:auto;padding:24px;line-height:1.8}}a{{color:#40d9ff}}</style></head>

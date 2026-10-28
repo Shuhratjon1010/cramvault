@@ -22,7 +22,7 @@ U=[
 ("uiuc","University of Illinois Urbana-Champaign","Champaign, IL",[("CHEM 102",CH),("CS 124","cs"),("MATH 221",CA)]),
 ("uw-madison","UW–Madison","Madison, WI",[("CHEM 103",CH),("COMP SCI 300","cs"),("MATH 221",CA)]),
 ("purdue","Purdue University","West Lafayette, IN",[("CHM 11500",CH),("CS 18000","cs"),("MA 16100",CA)]),
-("usc","USC","Los Angeles, CA",[("CHEM 105a",CH),("BISC 120",BI),("MATH 125",CA)]),
+("usc","USC","Los Angeles, CA",[("CHEM 105a",CH),("BISC 120",BI),("MATH 125g",CA)]),
 ("cornell","Cornell University","Ithaca, NY",[("CHEM 2070",CH),("CS 1110","cs"),("MATH 1910",CA)]),
 ("columbia","Columbia University","New York, NY",[("CHEM UN1403",CH),("COMS W1004","cs"),("MATH UN1101",CA)]),
 ("upenn","University of Pennsylvania","Philadelphia, PA",[("CHEM 1012",CH),("CIS 1200","cs"),("MATH 1400",CA)]),

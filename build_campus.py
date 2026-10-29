@@ -8,8 +8,8 @@ CS=[("Big-O of binary search","O(log n)"),("Recursion needs","A base case and a 
 ALL["cs"]=("Intro Computer Science",CS)
 CH="general-chemistry-chem-101"; OC="organic-chemistry-ii-chem-202"; BI="cell-biology-bio-101"; CA="calculus-i-math-101"; ST="ap-statistics"; LA="linear-algebra-math-201"
 U=[
-("uc-berkeley","UC Berkeley","Berkeley, CA",[("CHEM 3A",OC),("CS 61A","cs"),("MATH 1A",CA)]),
-("ucla","UCLA","Los Angeles, CA",[("CHEM 14A",CH),("LS 7A",BI),("MATH 31A",CA)]),
+("uc-berkeley","UC Berkeley","Berkeley, CA",[("CHEM 3A",OC),("CS 61A","cs"),("MATH 51",CA)]),
+("ucla","UCLA","Los Angeles, CA",[("CHEM 14A",CH),("LIFESCI 7A",BI),("MATH 31A",CA)]),
 ("university-of-michigan","University of Michigan","Ann Arbor, MI",[("CHEM 210",OC),("EECS 280","cs"),("MATH 115",CA)]),
 ("ut-austin","UT Austin","Austin, TX",[("CH 301",CH),("BIO 311C",BI),("M 408C",CA)]),
 ("university-of-florida","University of Florida","Gainesville, FL",[("CHM 2045",CH),("BSC 2010",BI),("MAC 2311",CA)]),
